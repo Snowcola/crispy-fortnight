@@ -10,12 +10,25 @@
         <div>
             <h1><a href="/mts/">MPS 2.0</a></h1>
         </div>
-
-        {% for meter in meters %}
-            <div>
-                <p>{{ meter.badge_number }}</p>
-                <p>Created: {{ meter.created_date }}</p>
+        {% if meters %}
+            <div class="meters">
+                <table id="meter_list">
+                <thead>
+                <tr>
+                    <th><div><span>Serial</span></div></th>
+                    <th><div><span>Creation Date</span><div></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for meter in meters %}
+                    <tr>
+                        <td colspan="{{ meter.badge_number|length }}">{{ meter.badge_number }}</td>
+                        <td colspan="{{ meter.created_date|length }}">{{ meter.created_date }}</td>
+                    </tr>   
+                {% endfor %}
+                </tbody>
+                </table>
             </div>
-        {% endfor %}
+        {% endif %}
     </body>
 </html>
