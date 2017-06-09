@@ -1,0 +1,21 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>Meter Tracking System</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    </head>
+    <body>
+        <div>
+            <h1><a href="/mts/">MPS 2.0</a></h1>
+        </div>
+
+        {% for meter in meters %}
+            <div>
+                <p>{{ meter.badge_number }}</p>
+                <p>Created: {{ meter.created_date }}</p>
+            </div>
+        {% endfor %}
+    </body>
+</html>
